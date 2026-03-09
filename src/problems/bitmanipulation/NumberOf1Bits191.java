@@ -1,7 +1,7 @@
 package problems.bitmanipulation;
 
 public class NumberOf1Bits191 {
-    public static int hammingWeight(int n) {
+    public int hammingWeight(int n) {
         int res = 0;
         while (n != 0) {
             res ++;

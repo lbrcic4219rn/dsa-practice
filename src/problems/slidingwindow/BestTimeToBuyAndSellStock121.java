@@ -1,7 +1,7 @@
 package problems.slidingwindow;
 
 public class BestTimeToBuyAndSellStock121 {
-    public static int maxProfit(int[] prices) {
+    public int maxProfit(int[] prices) {
         int low = 0;
         int high = low + 1 ;
         int max = 0;
