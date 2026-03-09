@@ -2,6 +2,10 @@ package problems.bitmanipulation;
 
 public class SingleNumber136 {
     public int singleNumber(int[] nums) {
-        return 0;
+        int res = 0;
+        for (int num: nums) {
+            res ^= num;
+        }
+        return res;
     }
 }
