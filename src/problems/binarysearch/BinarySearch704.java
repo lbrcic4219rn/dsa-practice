@@ -1,7 +1,7 @@
 package problems.binarysearch;
 
 public class BinarySearch704 {
-    public static int search(int[] nums, int target) {
+    public int search(int[] nums, int target) {
         int low = 0, high = nums.length;
 
         while (low < high) {
@@ -12,9 +12,5 @@ public class BinarySearch704 {
         }
 
         return -1;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(search(new int[]{3}, 3));
     }
 }
