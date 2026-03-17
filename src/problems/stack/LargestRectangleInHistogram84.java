@@ -3,7 +3,7 @@ package problems.stack;
 import java.util.Stack;
 
 public class LargestRectangleInHistogram84 {
-    public static int largestRectangleArea(int[] heights) {
+    public int largestRectangleArea(int[] heights) {
         int max = 0;
         Stack<int[]> stack = new Stack<>();
 
@@ -28,9 +28,5 @@ public class LargestRectangleInHistogram84 {
             max = Math.max(max, el[0] * (heights.length - el[1]));
         }
         return max;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(largestRectangleArea(new int[]{3,6,5,7,4,8,1,0}));
     }
 }
