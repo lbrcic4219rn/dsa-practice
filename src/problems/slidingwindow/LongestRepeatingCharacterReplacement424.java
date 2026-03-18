@@ -1,34 +1,27 @@
 package problems.slidingwindow;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestRepeatingCharacterReplacement424 {
     public static int characterReplacement(String s, int k) {
-        int low = 0;
-        int max = 1;
+        int l = 0;
+        Map<Character, Integer> count = new HashMap<>();
+        count.put(s.charAt(l), 1);
+        int maxf = 1; //ponavljanje
+        int maxLen = 1; //najduze
 
-        int changes = 0;
-        int diffIndex = 0;
-        char currChar = s.charAt(low);
-        char currLen = 1;
-        for(int i = 1; i < s.length(); i++) {
-            if(currChar == s.charAt(i)) {
-                currLen++;
+        for(int i = l + 1; i < s.length(); i++) {
+            count.put(s.charAt(i), count.getOrDefault(s.charAt(i), 0) + 1);
+            maxf = Math.max(count.get(s.charAt(i)), maxf);
+            if(i - l < maxf + k) {
+                maxLen = Math.max(maxLen, i - l + 1);
                 continue;
             }
-
-            if(changes == 0) {
-                diffIndex = i;
-            }
-            changes++;
-            if(changes > k) {
-                i = diffIndex;
-                max = Math.max(max, currLen);
-                currLen = 0;
-                changes = 0;
-                currChar = s.charAt(diffIndex);
-            }
-            currLen++;
+            count.put(s.charAt(l), count.get(s.charAt(l)) - 1);
+            l++;
         }
-        return Math.max(max, currLen);
+        return maxLen;
     }
 
     public static void main(String[] args) {
