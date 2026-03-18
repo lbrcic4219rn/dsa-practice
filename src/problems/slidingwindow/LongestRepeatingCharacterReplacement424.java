@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LongestRepeatingCharacterReplacement424 {
-    public static int characterReplacement(String s, int k) {
+    public int characterReplacement(String s, int k) {
         int l = 0;
         Map<Character, Integer> count = new HashMap<>();
         count.put(s.charAt(l), 1);
@@ -23,9 +23,4 @@ public class LongestRepeatingCharacterReplacement424 {
         }
         return maxLen;
     }
-
-    public static void main(String[] args) {
-        System.out.println(characterReplacement("XYYX", 2));
-    }
-
 }
