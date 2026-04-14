@@ -1,30 +1,23 @@
 package problems.binarysearch;
 
 public class SearchA2DMatrix74 {
-    public static boolean searchMatrix(int[][] matrix, int target) {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        final int col = matrix[0].length;
+        final int row = matrix.length;
+
         int l = 0;
-        int r = matrix.length * matrix[0].length;
+        int r = col * row - 1;
 
-        while (l < r) {
-            int mid = l + (l + r) / 2;
-            int i = mid / matrix.length;
-            int j = mid % matrix.length;
-            if(target == matrix[i][j]) {
-                return true;
-            }
-
-            if(target > matrix[i][j]) l = mid + 1;
-            else r = mid;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            int i = mid / col;
+            int j = mid % col;
+            int value = matrix[i][j];
+            if(matrix[i][j] < target) l = mid + 1;
+            else if (matrix[i][j] > target) r = mid - 1;
+            else return true;
         }
 
         return false;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(searchMatrix(new int[][]{
-                {1,2,4,8},
-                {10,11,12,13},
-                {14,20,30,40}
-        }, 15));
     }
 }
