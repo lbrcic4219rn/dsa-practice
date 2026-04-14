@@ -12,7 +12,6 @@ public class SearchA2DMatrix74 {
             int mid = l + (r - l) / 2;
             int i = mid / col;
             int j = mid % col;
-            int value = matrix[i][j];
             if(matrix[i][j] < target) l = mid + 1;
             else if (matrix[i][j] > target) r = mid - 1;
             else return true;
