@@ -4,10 +4,15 @@ import common.ListNode;
 
 public class ReverseLinkedList206 {
     public ListNode reverseList(ListNode head) {
-        if(head.next.next == null) {
-            head.next.next = head;
-            return head.next;
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while(curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        return null;
+        return prev;
     }
 }
